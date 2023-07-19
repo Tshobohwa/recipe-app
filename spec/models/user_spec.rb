@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'Should be invalid without a name' do
-    user = User.new(name: '')    
+    user = User.new(name: '')
     expect(user).not_to be_valid
     expect(user.errors[:name]).to include("can't be blank")
   end
