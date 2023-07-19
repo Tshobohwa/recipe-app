@@ -22,7 +22,6 @@ gem 'puma', '~> 5.0'
 
 gem 'mportmap-rails'
 
-
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'turbo-rails'
 
@@ -58,9 +57,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
   gem 'rspec-rails'
-
 end
-
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
@@ -78,6 +75,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-# Add rubocop gem
-gem 'rubocop', '>= 1.0', '< 2.0'
