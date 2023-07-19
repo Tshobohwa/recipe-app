@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'Should be invlid if variable is removed' do
-    user = User.new()
+    user = User.new('')
     expect(user).not_to be_valid
     expect(user.errors[:name]).to include("can't be blank")
   end
