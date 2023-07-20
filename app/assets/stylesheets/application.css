@@ -37,12 +37,6 @@
   border: 2px solid red;
 }
 
-.recipe_description {
-  border: 2px solid green;
-  width: 70%;
-  height: 18px;
-}
-
 .recipe_name_delete {
   display: flex;
   flex-direction: column;
@@ -81,5 +75,3 @@
   height: 50px;
   font-size: 20px;
 }
-
-

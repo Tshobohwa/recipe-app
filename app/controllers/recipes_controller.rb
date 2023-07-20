@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-
   def index
     @recipes = Recipe.includes(:user).all
     @user = @current_user
@@ -10,12 +9,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
-
-
   def create
-    @user = @current_user    
+    @user = @current_user
     @recipe = @user.recipes.build(recipe_param)
-   
 
     if @recipe.save
       redirect_to user_recipes_path, notice: 'User successfully created'
@@ -46,6 +42,5 @@ class RecipesController < ApplicationController
 
   def recipe_param
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
-    
   end
 end
