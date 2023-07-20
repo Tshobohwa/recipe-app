@@ -1,0 +1,51 @@
+<section class='recipe_show'>
+  <h1 class='recipe_show_head'>
+    <%= @recipe.name %> <%= @recipe.id %>
+  </h1>
+
+  </br>
+  <div class='recipe_det'>
+    <div class='recipe_attributes'>
+      <div>
+        Preparation time:
+        <% if @recipe.preparation_time > 1 %>
+          <%= @recipe.preparation_time %> hours
+        <% elsif @recipe.preparation_time < 1 && @recipe.preparation_time > 0 %>
+          <%= @recipe.preparation_time %> mins
+        <% else %>
+          <%= @recipe.preparation_time %> hour
+        <% end %>
+      </div>
+      <div>Public: toggle button</div>
+    </div> 
+    <br>
+
+    <div class='recipe_attributes'>
+        Cooking time:
+        <% if @recipe.preparation_time > 1 %>
+          <%= @recipe.cooking_time %> hours
+        <% elsif @recipe.preparation_time < 1 && @recipe.preparation_time > 0 %>
+          <%= @recipe.cooking_time %> mins
+        <% else %>
+         <%= @recipe.cooking_time %> hour
+        <% end %>
+    </div>
+    <br>
+      
+  <div class='recipe_attributes'>
+    Steps go here...
+  </div>
+  <br>
+
+  <div class='recipe_attributes'>
+    <button> Generate shopping list</button>
+
+    <%= link_to 'Add ingredient', new_user_recipe_path, method: :post %>
+
+  </div>
+
+  <br>
+  <hr>
+
+  <div>FOOD LIST</div>
+</section>
