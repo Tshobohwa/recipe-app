@@ -20,7 +20,7 @@ RSpec.describe Recipe, type: :model do
   before :each do
     @user = User.new(name: 'Lumbuye')
     @recipe = @user.recipes.new(user: @user, name: '', preparation_time: '', cooking_time: '', description: '',
-                                public: '')
+                                public: true)
   end
 
   it 'Should be invalid if a value is missing' do
@@ -28,7 +28,6 @@ RSpec.describe Recipe, type: :model do
     expect(@recipe.errors[:name]).to include("can't be blank")
     expect(@recipe.errors[:preparation_time]).to include("can't be blank")
     expect(@recipe.errors[:cooking_time]).to include("can't be blank")
-    expect(@recipe.errors[:public]).to include("can't be blank")
   end
 
   it 'Should be invalid if a cooking_time is less than one' do

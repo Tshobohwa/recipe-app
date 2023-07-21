@@ -1,8 +1,12 @@
 require 'rails_helper'
 require 'capybara/rspec'
 
-RSpec.describe 'ecipes', type: :request do
+RSpec.describe 'Recipes', type: :request do
   describe 'GET /index' do
+    before do
+      user = User.create(name: 'lumbuye')
+      get "/users/#{user.id}/recipes"
+    end
     it 'returns http success' do
       get '/recipes/index'
       expect(response).to have_http_status(:success)
