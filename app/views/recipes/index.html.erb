@@ -1,0 +1,8 @@
+<a href="/users/user_id/recipes/new">Create Recipe</a>
+<ul class='recipe_body'>
+  <% @recipes.each do |recipe| %>
+    <li class='recipe_details'>
+      <%= render partial: 'partials/recipe', locals: { recipe: recipe, user: @user } %>
+    </li>
+  <% end %>
+</ul>

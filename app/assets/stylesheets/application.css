@@ -13,3 +13,65 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.recipe_body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  list-style: none;
+  padding-top: 30px;
+}
+
+.recipe_details {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: 240px;
+  padding: 20px;
+  border: 2px solid red;
+}
+
+.recipe_name_delete {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.create_recipe,
+.recipe_show {
+  width: 100%;
+  padding: 30px;
+  font-size: 20px;
+}
+
+.recipe_show_head {
+  text-align: center;
+}
+
+.recipe_attributes {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.recipe_description {
+  width: 100%;
+  height: 200px;
+}
+
+.create_recipe_fields {
+  width: 100%;
+  height: 50px;
+}
+
+.recipe_submit_btn {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+}
