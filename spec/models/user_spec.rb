@@ -11,10 +11,4 @@ RSpec.describe User, type: :model do
     expect(user).not_to be_valid
     expect(user.errors[:name]).to include("can't be blank")
   end
-
-  it 'Should be invlid if there is no variable' do
-    user = User.new()
-    expect(user).not_to be_valid
-    expect(user.errors[:name]).to include("can't be blank")
-  end
 end

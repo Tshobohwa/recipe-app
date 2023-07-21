@@ -36,7 +36,6 @@ class RecipesController < ApplicationController
       flash.now[:error] = @recipe.errors.full_messages.to_sentence
       render :show
     end
-    
   end
 
   def destroy
