@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby.exe
 #!/usr/bin/env ruby
 
 # Load the Rails boot file to set up the load paths and require necessary dependencies.

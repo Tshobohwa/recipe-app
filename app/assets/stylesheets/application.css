@@ -43,6 +43,8 @@
   justify-content: space-between;
 }
 
+.recipe_app,
+.public_recipes,
 .create_recipe,
 .recipe_show {
   width: 100%;
@@ -50,6 +52,7 @@
   font-size: 20px;
 }
 
+.recipe_app_heading,
 .recipe_show_head {
   text-align: center;
 }
@@ -74,4 +77,9 @@
   width: 200px;
   height: 50px;
   font-size: 20px;
+}
+
+.public_recipe_list {
+  border: 2px solid red;
+  width: 100%;
 }
