@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby.exe
 #!/usr/bin/env ruby
 
+# Load the Rails boot file to set up the load paths and require necessary dependencies.
 APP_PATH = File.expand_path("../config/application", __dir__)
 require_relative "../config/boot"
+
+# Load the Rails application to configure the application.
 require "rails/commands"
+
