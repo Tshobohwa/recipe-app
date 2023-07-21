@@ -1,0 +1,30 @@
+<section class='create_recipe'>
+  <h1 class='recipe_show_head'>Create Recipe</h1> 
+  <%= form_with model: @recipe, url: user_recipes_path(@user.id), method: :post do |f| %>
+  
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, class:'create_recipe_fields' %>
+    <br> <br>
+
+    <%= f.label :preparation_time %>
+    <%= f.number_field :preparation_time, required: true, class:'create_recipe_fields' %>
+    <br> <br>
+
+     <%= f.label :cooking_time %>
+     <%= f.number_field :cooking_time, required: true, class:'create_recipe_fields' %>
+     <br> <br>
+       
+     <%= f.label :description %><br>
+     <%= f.text_area :description, required: true, class:'recipe_description' %>
+     <br> <br>
+
+     <%= f.label :public %> 
+     
+     <%= f.select :public, [['Public', true], ['Private', false]] %>
+     <br> <br>
+
+     <%= f.hidden_field :user_id, value: @user.id %>
+
+     <%= f.submit "Create Recipe", class: 'recipe_submit_btn' %>
+  <% end %>
+</section>
