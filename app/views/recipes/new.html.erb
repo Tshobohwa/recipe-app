@@ -1,6 +1,6 @@
 <section class='create_recipe'>
   <h1 class='recipe_show_head'>Create Recipe</h1> 
-  <%= form_with model: @recipe, url: user_recipes_path(@user.id), method: :post do |f| %>
+  <%= form_with model: @recipe, url: recipes_path, method: :post do |f| %>
   
     <%= f.label :name %>
     <%= f.text_field :name, required: true, class:'create_recipe_fields' %>

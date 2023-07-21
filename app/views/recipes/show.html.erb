@@ -20,7 +20,7 @@
       </div>
 
 
-      <%= form_with(model: @recipe, url: user_recipe_path(@recipe), method: :patch, id: 'recipe-form') do |f| %>
+      <%= form_with(model: @recipe, url: recipe_path(@recipe), method: :patch, id: 'recipe-form') do |f| %>
       
           <%= f.label :public%>
           <%= f.check_box :public,  data: { public: @recipe.public } %>
@@ -54,7 +54,7 @@
   <div class='recipe_attributes'>
     <button> Generate shopping list</button>
 
-    <%= link_to 'Add ingredient', new_user_recipe_path(@user), method: :post %>
+    <%= link_to 'Add ingredient', new_recipe_path(@user), method: :post %>
 
   </div>
   <% end %>

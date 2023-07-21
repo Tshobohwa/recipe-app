@@ -1,9 +1,9 @@
 <div class='recipe_name_delete'>
-    <a href="/users/user_id/recipes/<%= recipe.id %>">
+    <a href="recipes/<%= recipe.id %>">
     <%= recipe.name %> <%= recipe.id %>
     </a>  
     
-    <a href="<%= user_recipe_path(@user, recipe) %>"
+    <a href="<%= recipe_path( recipe) %>"
     data-turbo-method="delete"
     data-turbo-confirm="Are you sure?"
     data-method="delete">DELETE RECIPE</a>

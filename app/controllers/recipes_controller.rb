@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
     @recipe = @user.recipes.build(recipe_param)
 
     if @recipe.save
-      redirect_to user_recipes_path, notice: 'User successfully created'
+      redirect_to recipes_path, notice: 'User successfully created'
     else
       flash.now[:error] = @recipe.errors.full_messages.to_sentence
       render :new
@@ -42,7 +42,7 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.find(params[:id])
 
     if @recipe.destroy
-      redirect_to user_recipes_path(current_user, @recipe), notice: 'User was successfully destroyed'
+      redirect_to recipes_path(current_user, @recipe), notice: 'User was successfully destroyed'
     else
       p @recipe.errors.full_messages
     end

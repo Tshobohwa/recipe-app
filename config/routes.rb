@@ -10,12 +10,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users do
-    resources :foods
-    resources :recipes
-    resources :public_recipes
-  end
-
   resources :foods
   resources :recipes
   resources :public_recipes
