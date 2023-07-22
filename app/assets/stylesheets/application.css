@@ -1,0 +1,170 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 25px;
+}
+
+.login_forms {
+  width: 100%;
+  padding-left: 20%;
+}
+
+.login_form_field {
+  width: 60%;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.nav_cont,
+.recipe_app,
+.public_recipes,
+.create_recipe,
+.recipe_show {
+  width: 100%;
+  padding: 30px;
+}
+
+.nav_links,
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 75px;
+  background: rgb(108, 119, 108);
+  padding: 5px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.nav_links {
+  width: 60%;
+  list-style: none;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.recipe_body {
+  width: 100%;
+  list-style: none;
+  padding-top: 30px;
+}
+
+.recipe_details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 240px;
+  padding: 20px;
+  border: 2px solid red;
+}
+
+.recipe_name_delete {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.recipe_app_heading,
+.recipe_show_head {
+  text-align: center;
+}
+
+.recipe_attributes {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.recipe_description {
+  width: 100%;
+  height: 200px;
+}
+
+.create_recipe_fields {
+  width: 100%;
+  height: 50px;
+}
+
+.recipe_submit_btn {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.public_recipe_list {
+  border: 2px solid red;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+th {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.shopping-list-div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.add-food-btn-container {
+  width: 90vw;
+  display: flex;
+  justify-content: end;
+  padding: 2rem 0;
+}
+
+.add-food-btn {
+  border: solid 2px #000;
+  width: 10rem;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}

@@ -1,0 +1,12 @@
+  <h2>New recipe food:</h2>
+    <%= form_with class: 'form', model: @recipe_food, url: { action: "create" }, method: :post do |f| %>
+      <%= f.text_field :food_name, class: 'input', placeholder: 'food name' %>
+      <%= f.number_field :quantity, placeholder: 'quantity', class: 'form' %>
+      <%= f.submit 'Add recipe', class: 'form-btn' %>
+    <% end %>
+    <% if flash[:notice] %>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+  

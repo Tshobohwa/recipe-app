@@ -1,0 +1,26 @@
+<div class="add-food-btn-container">
+    <% if can? :create, Food %>
+        <a href=<%= new_food_path %> class = "add-food-btn">Add Food</a>
+    <% end %>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Food</th>
+            <th>Measurement Unit</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @foods.each do |food| %>
+            <%= render partial: 'food', locals: {food: food}%>
+        <% end %>
+    </tbody>
+</table>
+<% if flash[:notice] %>
+    <div class="notice">
+        <%= flash[:notice] %>
+    </div>
+<% end %>

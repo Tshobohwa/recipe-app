@@ -1,0 +1,11 @@
+<h1>Edit recipe food</h1>
+    <%= form_with class: 'form', model: @recipe_food, url: { action: "update" }, method: :post do |f| %>
+      <%= f.text_field :food_name, class: 'input', placeholder: 'food name', value:@recipe_food.food.name %>
+      <%= f.number_field :quantity, placeholder: 'quantity', class: 'form', value: @recipe_food.quantity %>
+      <%= f.submit 'Update ingredient', class: 'form-btn' %>
+    <% end %>
+    <% if flash[:notice] %>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>

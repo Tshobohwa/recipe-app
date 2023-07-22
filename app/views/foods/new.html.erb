@@ -1,0 +1,13 @@
+  <h2>Add food</h2>
+<%= form_with class: 'post-form', model: @food, url: { action: "create" }, method: :post do |f| %>
+    <%= f.text_field :name, placeholder: 'Food name', class: 'form-input' %>
+    <%= f.text_field :measurement_unit, placeholder: 'measurement unit', class: 'form-input' %>
+    <%= f.number_field :price, placeholder: 'Food price', class: 'form-input' %>
+    <%= f.number_field :quantity, placeholder: 'Food quantity', class: 'form-input' %>
+    <%= f.submit 'ADD FOOD', class: 'form-btn' %>
+    <% if flash[:notice] %>
+        <div class="notice">
+            <%= flash[:notice] %>
+        </div>
+    <% end %>
+<% end %>

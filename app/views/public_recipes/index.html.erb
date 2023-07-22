@@ -1,0 +1,29 @@
+<section class='public_recipes'>
+<h2>Public Recipes</h2>
+  <% @public_recipes.each do |recipe| %>
+    <ul>
+      <li class='public_recipe_list'>
+        <div>
+          <div><%= recipe.name %></div><br>
+          By: <%= recipe.user.name %>
+        </div>
+        <div>
+         <div>Total food items: <%= recipe.recipe_foods.length %> </div>
+         <div>Total price: 
+          <% @total_price = 0 %>
+           <% recipe.recipe_foods.each do |recipe_food| %>
+            <% @total_price  = @total_price + recipe_food.food.price * recipe_food.quantity %>
+           <% end %> 
+           <%= @total_price %> $
+           </div>
+        </div>
+      </li>
+    </ul>
+  <% end %>
+</section>
+
+<% if flash[:notice] %>
+        <div class="notice">
+            <%= flash[:notice] %>
+        </div>
+    <% end %>

@@ -1,0 +1,19 @@
+<div class='recipe_name_delete'>
+    <a href="/recipes/<%= recipe.id %>">
+    <%= recipe.name %> <%= recipe.id %>
+    </a>  
+    
+    <% if can? :destroy, Recipe %>
+        <a href="<%= recipe_path( recipe) %>"
+        data-turbo-method="delete"
+        data-turbo-confirm="Are you sure?"
+        data-method="delete      
+        ">DELETE RECIPE</a>
+    <% end %>
+     
+</div>
+
+<div class='recipe_description'>
+    <%= recipe.description %>
+</div>
+

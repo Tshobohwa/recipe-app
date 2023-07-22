@@ -1,0 +1,83 @@
+<section class='recipe_show'>
+
+<% if @recipe.public? || @recipe.user == @current_user %>
+  <h1 class='recipe_show_head'>
+    <%= @recipe.name %> <%= @recipe.id %> 
+  </h1>
+
+  </br>
+  <div class='recipe_det'>
+    <div class='recipe_attributes'>
+      <div>
+        Preparation time:
+        <% if @recipe.preparation_time > 1 %>
+          <%= @recipe.preparation_time %> hours
+        <% elsif @recipe.preparation_time < 1 && @recipe.preparation_time > 0 %>
+          <%= @recipe.preparation_time %> mins
+        <% else %>
+          <%= @recipe.preparation_time %> hour
+        <% end %>
+      </div>
+
+
+      <%= form_with(model: @recipe, url: recipe_path(@recipe), method: :patch, id: 'recipe-form') do |f| %>
+      
+          <%= f.label :public%>
+          <%= f.check_box :public,  data: { public: @recipe.public } %>
+          <%= f.submit 'Toggle Public/Private' %>
+          <br>
+          <%= @recipe.public %>
+        
+      <% end %>
+
+
+    </div> 
+    <br>
+
+    <div class='recipe_attributes'>
+        Cooking time:
+        <% if @recipe.preparation_time > 1 %>
+          <%= @recipe.cooking_time %> hours
+        <% elsif @recipe.preparation_time < 1 && @recipe.preparation_time > 0 %>
+          <%= @recipe.cooking_time %> mins
+        <% else %>
+         <%= @recipe.cooking_time %> hour
+        <% end %>
+    </div>
+    <br>
+      
+  <div class='recipe_attributes'>
+    Steps go here...
+  </div>
+  <br>
+
+  <div class='recipe_attributes'>
+    <%= link_to 'Generate shopping list', shopping_list_path(@recipe.id) %>
+
+  <%= link_to 'Add ingredient', new_recipe_recipe_food_path(recipe_id: @recipe.id) %>
+
+  </div>
+  <% end %>
+
+  <br>
+  <hr>
+
+  <div>
+    <h2>FOOD LIST:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @recipe.recipe_foods.each do |recipe_food| %>
+        <%= render partial: 'partials/recipe_food_row', locals: { recipe_food: recipe_food, recipe: @recipe } %>
+      <% end %>
+    </tbody>
+    </table>
+  </div>
+</section>
