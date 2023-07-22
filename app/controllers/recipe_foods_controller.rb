@@ -11,6 +11,8 @@ class RecipeFoodsController < ApplicationController
 
     return redirect_to new_recipe_recipe_food_path, notice: "No food with name: #{food_name}" unless food
 
+    food_recipe
+
     recipe_food = RecipeFood.new(recipe_id: @recipe_id, food_id: food.id, quantity:)
     if recipe_food.save
       redirect_to show_recipe_path(recipe_id), notice: 'Ingredient added successfully.'
