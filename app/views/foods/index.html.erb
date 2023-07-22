@@ -1,6 +1,8 @@
-<% if can? :create, Food %>
-    <a href=<%= new_food_path %>>Add Food</a>
-<% end %>
+<div class="add-food-btn-container">
+    <% if can? :create, Food %>
+        <a href=<%= new_food_path %> class = "add-food-btn">Add Food</a>
+    <% end %>
+</div>
 
 <table>
     <thead>

@@ -1,6 +1,6 @@
 <section class='recipe_show'>
 
-<% if @recipe.public? || if can? :read, Recipe %>
+<% if @recipe.public? || @recipe.user == @current_user %>
   <h1 class='recipe_show_head'>
     <%= @recipe.name %> <%= @recipe.id %> 
   </h1>

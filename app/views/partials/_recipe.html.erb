@@ -3,7 +3,7 @@
     <%= recipe.name %> <%= recipe.id %>
     </a>  
     
-    <% if can? :destroy %>
+    <% if can? :destroy, Recipe %>
         <a href="<%= recipe_path( recipe) %>"
         data-turbo-method="delete"
         data-turbo-confirm="Are you sure?"
