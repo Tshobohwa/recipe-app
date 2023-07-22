@@ -11,16 +11,16 @@ RSpec.describe PublicRecipesController, type: :request do
   end
   describe 'GET #index' do
     it 'returns http success' do
-      get '/public_recipes' 
+      get '/public_recipes'
       expect(response).to have_http_status(:success)
     end
 
     it 'It returns the correct template' do
-      get '/public_recipes' 
+      get '/public_recipes'
       expect(response).to render_template(:index)
     end
     it 'It returns place holder from the body' do
-      get '/public_recipes' 
+      get '/public_recipes'
       expect(response.body).to include('Public')
     end
   end

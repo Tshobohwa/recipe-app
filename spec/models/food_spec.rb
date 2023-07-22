@@ -16,18 +16,16 @@ RSpec.describe Food, type: :model do
 end
 
 RSpec.describe Recipe, type: :model do
-    before :each do
-      @user = User.new(name: 'Lumbuye')
-      @food = @user.foods.new(name: '', measurement_unit: '', price: '', quantity: '')
-    end
-  
-    it 'Should be invalid if a value is missing' do
-      expect(@food).not_to be_valid
-      expect(@food.errors[:name]).to include("can't be blank")
-      expect(@food.errors[:measurement_unit]).to include("can't be blank")
-      expect(@food.errors[:price]).to include("can't be blank")
-      expect(@food.errors[:quantity]).to include("can't be blank")
-      
-     
-    end
+  before :each do
+    @user = User.new(name: 'Lumbuye')
+    @food = @user.foods.new(name: '', measurement_unit: '', price: '', quantity: '')
+  end
+
+  it 'Should be invalid if a value is missing' do
+    expect(@food).not_to be_valid
+    expect(@food.errors[:name]).to include("can't be blank")
+    expect(@food.errors[:measurement_unit]).to include("can't be blank")
+    expect(@food.errors[:price]).to include("can't be blank")
+    expect(@food.errors[:quantity]).to include("can't be blank")
+  end
 end
