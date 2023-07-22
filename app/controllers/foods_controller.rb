@@ -10,8 +10,9 @@ class FoodsController < ApplicationController
   def create
     name = food_params[:name]
     measurement_unit = food_params[:measurement_unit]
+    quantity = food_params[:quantity]
     price = food_params[:price]
-    food = Food.new(user_id: current_user.id, name:, measurement_unit:, price:)
+    food = Food.new(user_id: current_user.id, name:, measurement_unit:, price:, quantity:)
 
     if food.save
       redirect_to foods_path, notice: 'Food created successfully!!'
@@ -32,6 +33,6 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price)
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
 end
