@@ -3,6 +3,6 @@
   <% @recipes.each do |recipe| %>
     <li class='recipe_details'>
       <%= render partial: 'partials/recipe', locals: { recipe: recipe, user: @user } %>
-    </li>
+    </li> <br>
   <% end %>
 </ul>
