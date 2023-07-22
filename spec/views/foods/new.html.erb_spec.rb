@@ -10,8 +10,8 @@ RSpec.describe 'Recipes index', type: :view do
     sign_in @user
   end
 
-  it 'Has Total' do
-    visit recipes_path
-    expect(page).to have_content('Public Recipe')
+  it 'Has create food' do
+    visit 'foods/new'
+    expect(page).to have_content('Add food')
   end
 end
