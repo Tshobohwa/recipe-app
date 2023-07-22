@@ -1,4 +1,7 @@
-<a href=<%= new_food_path %>>Add Food</a>
+<% if can? :create, Food %>
+    <a href=<%= new_food_path %>>Add Food</a>
+<% end %>
+
 <table>
     <thead>
         <tr>

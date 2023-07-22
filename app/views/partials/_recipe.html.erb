@@ -3,10 +3,13 @@
     <%= recipe.name %> <%= recipe.id %>
     </a>  
     
-    <a href="<%= recipe_path( recipe) %>"
-    data-turbo-method="delete"
-    data-turbo-confirm="Are you sure?"
-    data-method="delete">DELETE RECIPE</a>
+    <% if can? :destroy %>
+        <a href="<%= recipe_path( recipe) %>"
+        data-turbo-method="delete"
+        data-turbo-confirm="Are you sure?"
+        data-method="delete      
+        ">DELETE RECIPE</a>
+    <% end %>
      
 </div>
 
