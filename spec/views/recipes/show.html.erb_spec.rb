@@ -10,7 +10,7 @@ RSpec.describe 'Recipes index', type: :view do
     sign_in @user
   end
 
-  it 'Has create recipe' do
+  it 'Has Preparation' do
     recipe = Recipe.create(user: @user, name: 'test', preparation_time: 1, cooking_time: 1,
                            description: 'This description', public: true)
     visit "recipes/#{recipe.id}"
