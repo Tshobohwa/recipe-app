@@ -1,6 +1,6 @@
 <section class='recipe_show'>
 
-<% if @recipe.public? || @recipe.user == @current_user %>
+<% if @recipe.public? || if can? :read, Recipe %>
   <h1 class='recipe_show_head'>
     <%= @recipe.name %> <%= @recipe.id %> 
   </h1>
@@ -52,7 +52,7 @@
   <br>
 
   <div class='recipe_attributes'>
-    <button> Generate shopping list</button>
+    <%= link_to 'Generate shopping list', shopping_list_path(@recipe.id) %>
 
   <%= link_to 'Add ingredient', new_recipe_recipe_food_path(recipe_id: @recipe.id) %>
 

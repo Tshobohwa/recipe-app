@@ -8,8 +8,14 @@
           By: <%= recipe.user.name %>
         </div>
         <div>
-         <div>Total food items: </div>
-         <div>Total price: </div>
+         <div>Total food items: <%= recipe.recipe_foods.length %> </div>
+         <div>Total price: 
+          <% @total_price = 0 %>
+           <% recipe.recipe_foods.each do |recipe_food| %>
+            <% @total_price  = @total_price + recipe_food.food.price * recipe_food.quantity %>
+           <% end %> 
+           <%= @total_price %> $
+           </div>
         </div>
       </li>
     </ul>
