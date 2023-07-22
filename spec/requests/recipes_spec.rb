@@ -2,49 +2,72 @@ require 'rails_helper'
 require 'capybara/rspec'
 
 RSpec.describe 'Recipes', type: :request do
+  include Devise::Test::IntegrationHelpers
+
+  before do
+    @user = User.create(name: 'lumbuye', email: 'text@t.com', password: '123456')
+    @user.confirm
+    sign_in @user
+    
+  end
+
   describe 'GET /index' do
     before do
-      user = User.create(name: 'lumbuye')
-      get "/users/#{user.id}/recipes"
+      get "/recipes/"
     end
+   
     it 'returns http success' do
-      get '/recipes/index'
       expect(response).to have_http_status(:success)
+    end
+
+    it 'It returns the correct template' do
+      expect(response).to render_template(:index)
+    end
+    it 'It returns place holder from the body' do
+      expect(response.body).to include('Recipes')
     end
   end
 
   describe 'GET /create' do
-    it 'returns http success' do
-      get '/recipes/create'
-      expect(response).to have_http_status(:success)
-    end
-  end
+    before do
+       recipe = Recipe.create(user: @user, name: 'test', preparation_time: 1, cooking_time: 1, description: 'This description', public: true )
+         get "/recipes/new/"
+      end
 
-  describe 'GET /new' do
     it 'returns http success' do
-      get '/recipes/new'
+     
       expect(response).to have_http_status(:success)
     end
-  end
 
-  describe 'GET /edit' do
-    it 'returns http success' do
-      get '/recipes/edit'
-      expect(response).to have_http_status(:success)
+    it 'It returns the correct template' do
+      expect(response).to render_template(:new)
     end
-  end
 
-  describe 'GET /show' do
-    it 'returns http success' do
-      get '/recipes/show'
-      expect(response).to have_http_status(:success)
+    it 'It returns place holder from the body' do
+      expect(response.body).to include('Create Recipe')
     end
   end
-
-  describe 'GET /destroy' do
-    it 'returns http success' do
-      get '/recipes/destroy'
+  
+  describe 'GET /recipes/:id' do   
+  
+    it 'should respond with success' do
+      @recipe = Recipe.create(user: @user, name: 'test recipe', preparation_time: '1 hr', cooking_time: '1.5 hrs',
+                              description: 'test description', public: true)
+                              get "/recipes/new/"
+      get "recipes/#{@recipe.id}"
       expect(response).to have_http_status(:success)
     end
+  
+    it 'should render correct template' do
+      expect(response).to render_template(:show)
+    end
+  
+    it 'should include recipe name in the response body' do
+      expect(response.body).to include('test recipe')
+    end
   end
+  
+  
+  
+  
 end
