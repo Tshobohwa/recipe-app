@@ -54,7 +54,7 @@
   <div class='recipe_attributes'>
     <button> Generate shopping list</button>
 
-    <%= link_to 'Add ingredient', new_food_path(@user), method: :post %>
+  <%= link_to 'Add ingredient', new_recipe_recipe_food_path(recipe_id: @recipe.id) %>
 
   </div>
   <% end %>
@@ -62,5 +62,22 @@
   <br>
   <hr>
 
-  <div>FOOD LIST</div>
+  <div>
+    <h2>FOOD LIST:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @recipe.recipe_foods.each do |recipe_food| %>
+        <%= render partial: 'partials/recipe_food_row', locals: { recipe_food: recipe_food, recipe: @recipe } %>
+      <% end %>
+    </tbody>
+    </table>
+  </div>
 </section>

@@ -10,12 +10,11 @@ Rails.application.routes.draw do
     end
   end
 
-
-  resources :recipes
   resources :foods
-  resources :public_recipes, only: [:index]
-
-  get '/recipes/:id', to: 'recipes#show', as: 'recipes_show'
+  resources :recipes do
+    resources :recipe_foods
+  end
+  resources :public_recipes
 
   get'/shopping_list', to: 'shopping_lists#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -23,4 +22,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   delete 'foods/:id', to: 'foods#delete', as: 'delete_food'
+  delete "/recipes/:recipe_id/recipe_foods/:id", to: 'recipe_foods#destroy', as: 'delete_recipe_food'
+  post '/recipes/:recipe_id/recipe_foods/:id', to: 'recipe_foods#update', as: :update_recipe_food
 end
