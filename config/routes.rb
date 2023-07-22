@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :foods
   resources :recipes do
-      resources :recipe_foods, only: [:new, :create, :destroy]
+    resources :recipe_foods
   end
   resources :public_recipes
 
@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   delete 'foods/:id', to: 'foods#delete', as: 'delete_food'
+  delete "/recipes/:recipe_id/recipe_foods/:id", to: 'recipe_foods#destroy', as: 'delete_recipe_food'
+  post '/recipes/:recipe_id/recipe_foods/:id', to: 'recipe_foods#update', as: :update_recipe_food
 end
