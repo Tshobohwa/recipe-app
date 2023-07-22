@@ -7,5 +7,4 @@ class Food < ApplicationRecord
   validates :price, presence: true
   validates :quanity, presence: true
   validates :user_id, presence: true
-
 end
