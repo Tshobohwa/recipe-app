@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
   before :each do
-    @user = User.new(name: 'Lumbuye')
+    @user = User.new(name: 'Lumbuye', email: 'test@g.com', password: '123456')
     @recipe = @user.recipes.new(user: @user, name: 'gigi', preparation_time: 1.2, cooking_time: 0.5,
                                 description: "It's a cooking idea", public: true)
   end

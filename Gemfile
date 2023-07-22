@@ -7,6 +7,8 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'devise'
 
+gem 'rails-controller-testing'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: "main"
 
 gem 'rails', '~> 7.0.6'
@@ -73,7 +75,7 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
+  gem 'capybara', '~> 3.36', '>= 3.36.0'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end

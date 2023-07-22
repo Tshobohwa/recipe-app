@@ -14,21 +14,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <div class='recipe_app'>
-  <h1 class='recipe_app_heading'>Recipe App</h1>
-  <%= button_to "Logout", destroy_user_session_path, method: :delete %>
-
-  <nav> 
-   <ul>
-     <li><a href="/recipes/new">Create Recipe</a></li>
-     <li><a href="/public_recipes/">Public Recipe</a></li>
-     <li><a href="/foods">foods</a></li>
-   </ul>
-  </nav>
-
-  
- 
-</div>
+    <%= render 'home/navbar' %>
 
     <%= yield %>
   </body>
