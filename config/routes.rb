@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
   resources :public_recipes
 
-  get'/shopping_list', to: 'shopping_lists#index'
+  get'recipes/:id/shopping_list', to: 'shopping_lists#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :foods, only: [:index, :new, :create]
   # Defines the root path route ("/")
