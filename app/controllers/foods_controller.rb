@@ -15,7 +15,7 @@ class FoodsController < ApplicationController
     food = Food.new(user_id: current_user.id, name:, measurement_unit:, price:, quantity:)
 
     if food.save
-      redirect_to foods_path, notice: 'Food created successfully!!'
+      redirect_to foods_path, notice: 'Food created successfully!'
     else
       render :new, notice: 'An error occured while creating a new food'
     end
