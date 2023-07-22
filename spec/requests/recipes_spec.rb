@@ -72,9 +72,4 @@ RSpec.describe 'Recipes', type: :request do
     end
   end
 
-  describe 'DELETE /recipes/:id' do
-    let!(:recipe) do
-      Recipe.create(user: @user, name: 'test', preparation_time: 1, cooking_time: 1, description: 'test decsription', public: true)
-    end
-  end
 end
