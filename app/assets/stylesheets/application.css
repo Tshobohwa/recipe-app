@@ -21,6 +21,18 @@
   font-size: 25px;
 }
 
+.login_forms {
+  width: 100%;
+  padding-left: 20%;
+
+}
+
+.login_form_field {
+  width: 60%;
+  height: 40px;
+  border-radius: 10px;
+}
+
 .nav_cont,
 .recipe_app,
 .public_recipes,
@@ -28,7 +40,6 @@
 .recipe_show {
   width: 100%;
   padding: 30px;
-  font-size: 20px;
 }
 
 .nav_links,
