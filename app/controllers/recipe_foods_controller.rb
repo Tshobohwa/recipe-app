@@ -11,12 +11,16 @@ class RecipeFoodsController < ApplicationController
 
     return redirect_to new_recipe_recipe_food_path, notice: "No food with name: #{food_name}" unless food
 
+    @existing_recipe_food = RecipeFood.find_by(food_id: food.id, recipe_id: @recipe_id)
 
-    recipe_food = RecipeFood.new(recipe_id: @recipe_id, food_id: food.id, quantity:)
-    if recipe_food.save
-      redirect_to recipe_path(@recipe_id), notice: 'Ingredient added successfully.'
+    if @existing_recipe_food.present?
+      @existing_recipe_food.update(quantity: @existing_recipe_food.quantity.to_f + quantity.to_f)
+      redirect_to recipe_path(@recipe_id), notice: 'Ingredient updated successfully successfully.'
     else
-      render :new, notice: 'An error occurred while adding the ingredient'
+      recipe_food = RecipeFood.new(recipe_id: @recipe_id, food_id: food.id, quantity:)
+      return render :new, notice: 'An error occurred while adding the ingredient' unless recipe_food.save
+
+      redirect_to recipe_path(@recipe_id), notice: 'Ingredient added successfully.'
     end
   end
 
