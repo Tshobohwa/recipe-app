@@ -3,7 +3,7 @@ require 'capybara/rspec'
 
 RSpec.describe 'Recipes index', type: :view do
   include Capybara::DSL
-  include Devise::Test::IntegrationHelpers 
+  include Devise::Test::IntegrationHelpers
   before do
     @user = User.create(name: 'lumbuye', email: 'text@t.com', password: '123456')
     @user.confirm
@@ -15,6 +15,3 @@ RSpec.describe 'Recipes index', type: :view do
     expect(page).to have_content('Create')
   end
 end
-
-
-
