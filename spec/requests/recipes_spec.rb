@@ -12,7 +12,7 @@ RSpec.describe 'Recipes', type: :request do
 
   describe 'GET /index' do
     before do
-      get "/recipes/"
+      get '/recipes/'
     end
 
     it 'returns http success' do
@@ -30,7 +30,7 @@ RSpec.describe 'Recipes', type: :request do
   describe 'GET /create' do
     before do
       Recipe.create(user: @user, name: 'test', preparation_time: 1, cooking_time: 1,
-                             description: 'This description', public: true)
+                    description: 'This description', public: true)
       get '/recipes/new/'
     end
 
@@ -50,23 +50,23 @@ RSpec.describe 'Recipes', type: :request do
   describe 'GET /recipes/:id' do
     it 'should respond with success' do
       recipe = Recipe.create(user: @user, name: 'test', preparation_time: 1, cooking_time: 1,
-      description: 'This description', public: true)
-      get "/recipes/#{ recipe.id }/"
+                             description: 'This description', public: true)
+      get "/recipes/#{recipe.id}/"
       expect(response).to have_http_status(:success)
     end
 
     it 'should render correct template' do
       recipe = Recipe.create(user: @user, name: 'test', preparation_time: 1, cooking_time: 1,
-      description: 'This description', public: true)
-      get "/recipes/#{ recipe.id }/"
+                             description: 'This description', public: true)
+      get "/recipes/#{recipe.id}/"
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:show)
     end
 
     it 'should include recipe name in the response body' do
       recipe = Recipe.create(user: @user, name: 'test', preparation_time: 1, cooking_time: 1,
-      description: 'This description', public: true)
-      get "/recipes/#{ recipe.id }/"
+                             description: 'This description', public: true)
+      get "/recipes/#{recipe.id}/"
       expect(response).to have_http_status(:success)
       expect(response.body).to include('test')
     end
