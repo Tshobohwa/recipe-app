@@ -71,5 +71,4 @@ RSpec.describe 'Recipes', type: :request do
       expect(response.body).to include('test')
     end
   end
-
 end
